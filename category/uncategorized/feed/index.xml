@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Uncategorized &#8211; Ryan Leaf</title>
+	<atom:link href="http://host.docker.internal/category/uncategorized/feed/?simply_static_page=213" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>Product Manager &#38; Software Engineer</description>
+	<lastBuildDate>Wed, 21 Jun 2023 20:27:52 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.2.2</generator>
+	<item>
+		<title>Guide: How to get 1Password working with WSL2, Ubuntu 22.04 and SSH</title>
+		<link>/2023/01/21-2/</link>
+		
+		<dc:creator><![CDATA[Ryan]]></dc:creator>
+		<pubDate>Wed, 18 Jan 2023 21:27:00 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">/?p=21</guid>
+
+					<description><![CDATA[One of the notable features of 1Password is the ability for the service to act as an SSH agent, replacing local storage of private keys. At work, I use Ubuntu 22.04 inside of WSL2 for all of my development tasks, which has been a huge boon to my productivity. However, the documentation provided by 1Password&#8230; <a class="more-link" href="/2023/01/21-2/">Continue reading <span class="screen-reader-text">Guide: How to get 1Password working with WSL2, Ubuntu 22.04 and SSH</span></a>]]></description>
+										<content:encoded><![CDATA[
+<p>One of the notable features of 1Password is the ability for the service to act as an SSH agent, replacing local storage of private keys. At work, I use Ubuntu 22.04 inside of WSL2 for all of my development tasks, which has been a huge boon to my productivity.</p>
+
+
+
+<p>However, the documentation provided by 1Password is limited and does not clearly cover the use case of setting it up on a Windows host with a WSL2-powered Ubuntu instance. After spending a couple of hours today trying to figure it out, I finally have a solution.</p>
+
+
+
+<p><em>Note: I’m running Windows 10. Some steps may be unnecessary on Windows 11 systems.</em></p>
+
+
+
+<h2 class="wp-block-heading">How to set it up</h2>
+
+
+
+<p>Here are the steps I took that ended up working. Some may be optional for you and I haven’t extensively tested other methods. As always, YMMV.</p>
+
+
+
+<ol>
+<li><strong>Install Scoop.</strong> You’ll need this for both <code>npiperelay</code> and <code>openssh</code>. Technically, you can install these without <code>scoop</code>, but it’s far easier to do with the utility.</li>
+
+
+
+<li><strong>Uninstall the Windows OpenSSH client. </strong>To do this, open Windows Search and look for “Optional Features.” Remove <code>OpenSSH Client</code>.<br><br>The officially provided Windows is out-of-sync with the version shipped in Ubuntu 22.04.</li>
+
+
+
+<li><strong>Install OpenSSH 8.9.1p0. </strong>You can do this by running the following command:<br><code>scoop install openssh@8.9.1p0</code>.</li>
+
+
+
+<li><strong>Install <code>npiperelay.exe</code>. </strong>This utility will allow us to forward pipes between the WSL2 system and our Windows host. To install: <code>scoop install npiperelay</code>.</li>
+
+
+
+<li><strong>Log out and log back in.</strong> You may also need to restart Windows.</li>
+
+
+
+<li><strong>Configure 1Password to function as an SSH Agent. </strong>You may need to first turn on “Unlock using Windows Hello” under the “Security” tab in Settings. Then navigate to “Developer &gt; Use the SSH agent” and tick the box to turn on the SSH agent.</li>
+
+
+
+<li><strong><a href="https://dev.to/d4vsanchez/use-1password-ssh-agent-in-wsl-2j6m">Follow these steps from <code>d4vsanchez</code> to finish the setup inside of your Ubuntu WSL2 instance.</a></strong></li>
+</ol>
+
+
+
+<p>And that’s it! You should be able to verify your setup by running:</p>
+
+
+
+<pre class="wp-block-code"><code>ssh-add -l</code></pre>
+
+
+
+<p>If you see a list of keys, then you’re in business.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>How we manage a massive React project at Minsilo</title>
+		<link>/2022/09/how-we-manage-a-massive-react-project-at-minsilo/</link>
+		
+		<dc:creator><![CDATA[Ryan]]></dc:creator>
+		<pubDate>Wed, 14 Sep 2022 01:30:00 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">/?p=25</guid>
+
+					<description><![CDATA[I rarely ever talk about lines of code when referring to a project. It&#8217;s usually a poor measure of productivity and substance. But it does say a lot about the potential complexity of a project. At Minsilo, our core React application contains the following: This does not account for any other code that we may&#8230; <a class="more-link" href="/2022/09/how-we-manage-a-massive-react-project-at-minsilo/">Continue reading <span class="screen-reader-text">How we manage a massive React project at Minsilo</span></a>]]></description>
+										<content:encoded><![CDATA[
+<p>I rarely ever talk about lines of code when referring to a project. It&#8217;s usually a poor measure of productivity and substance. But it does say a lot about the potential complexity of a project.</p>
+
+
+
+<p>At Minsilo, our core React application contains the following:</p>
+
+
+
+<ul>
+<li>~42K lines of Javascript spread across 1,671 files.</li>
+
+
+
+<li>~10K lines of CSS spread across 579 files.</li>
+
+
+
+<li>First commit in 2018.</li>
+
+
+
+<li>1,565 commits, 240 tagged releases (more commits in practice, since we squash commits sometimes have larger pull requests).</li>
+</ul>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" src="https://ryanleaforg.files.wordpress.com/2022/09/screen-shot-2022-09-12-at-10.21.58-pm.png?w=1024" alt="" class="wp-image-85"/></figure>
+
+
+
+<p>This does not account for any other code that we may have (we also have a separate <code>partner</code> application and <code>authentication</code> client) on the frontend or in our monolithic backend.</p>
+
+
+
+<p>So how do we keep it all organized?</p>
+
+
+
+<h2 class="wp-block-heading">More files</h2>
+
+
+
+<p>After many years of trial and error, I&#8217;ve find it&#8217;s better to keep smaller files that do one thing and rely on composition, rather than trying to do too many things in one file.  <strong>It turns out that more files with less going on in each of them is generally better.</strong></p>
+
+
+
+<h2 class="wp-block-heading">Better separation of concerns</h2>
+
+
+
+<p>React does not enforce any specific paradigm, unlike web frontends such as Angular. It&#8217;s not even a framework, but rather a library that is focused primarily on manipulating the DOM in a consistent and useful way. This is both a blessing and a curse.</p>
+
+
+
+<p>This led to trouble for us early on in our core repository, since we did a poor job at separating concerns and setting ourselves up for code reuse. </p>
+
+
+
+<p>Since then, we&#8217;ve done a lot of refactoring to clean our code up. The easy problems we had to fix were:</p>
+
+
+
+<ul>
+<li>Having too many components in a file – simple: create individual files for each component.</li>
+
+
+
+<li>Having spaghetti code (e.g. code that jumps all over the place and calls other code in a disorganized manner) – not a simple problem to solve, but it can be solved by using good code refactoring tools.</li>
+
+
+
+<li>Poorly named components, functions, and variables – <a href="http://There/ are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.">naming is the hardest part about programming</a> and there&#8217;s always a tradeoff to be had between <em>moving fast and naming things (poorly)</em>.</li>
+</ul>
+
+
+
+<p>For a lot of this refactoring, I ended up using the built-in tools that Webstorm has. I&#8217;ve heard that VSCode can do some of the same things now, but I haven&#8217;t checked it out for myself.</p>
+
+
+
+<h3 class="wp-block-heading">Using good folder structure</h3>
+
+
+
+<p>Our application is organized as such:</p>
+
+
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: bash; title: ; notranslate">
+src
+├── components
+├── data
+├── errors
+├── hooks
+├── images
+├── lib
+├── services
+└── styles
+</pre></div>
+
+
+<p>Digging into our <code>components</code> directory, we have three major subdirectories:</p>
+
+
+
+<ul>
+<li>BuildingBlocks –&nbsp;reusable frontend components, such as our drop-in comments component.</li>
+
+
+
+<li>Core – core functionality handling both view and data concerns, such as <code>Layout</code> and <code>Websockets</code>.</li>
+
+
+
+<li>Features – &#8220;real world&#8221; functionality that contains useful capabilities for end users.</li>
+</ul>
+
+
+
+<p>BuildingBlocks are essentially features in of themselves, with the notable exception being that we do not expose them independently of components under <code>Features</code>. In other words, we use the <code>BuildingBlocks</code> to add functionality to <code>Features</code>.</p>
+
+
+
+<p>Core contains an assortment of things. Here&#8217;s what&#8217;s in that directory:</p>
+
+
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: plain; title: ; notranslate">
+src/components/Core
+├── Auth
+├── Context
+├── Diagnostics
+├── FeatureGating
+├── Groups
+├── Help
+├── Layout
+├── Offline
+├── Profiles
+├── Routing
+├── Schedules
+├── Search
+├── Settings
+├── Sidebars
+├── SubscriptionsV2
+├── Users
+├── Versions
+├── Websockets
+└── WorkspaceSettings
+</pre></div>
+
+
+<p>Features are real-world, end-user facing components that provide our advertised feature set.</p>
+
+
+
+<h4 class="wp-block-heading">Creating new components</h4>
+
+
+
+<p>Most of our new components and features are created using generators. We utilize <a href="https://plopjs.com/">plop</a> for our generators.</p>
+
+
+
+<p>The main plop generator we utilize is called <code>generateContextComponent</code>, which creates a new component with the following files:</p>
+
+
+
+<ul>
+<li>index.js</li>
+
+
+
+<li>component_name.module.css</li>
+</ul>
+
+
+
+<p>Inside of the <code>index.js</code> file is a basic component that looks like this:</p>
+
+
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: jscript; title: ; notranslate">
+import { useContext } from 'react'
+import classes from './component_name.module.css'
+const ComponentName = () =&gt; {
+    return &lt;&gt;&lt;/&gt;
+}
+export default ComponentName
+</pre></div>
+
+
+<p>This isn&#8217;t too fancy, but it takes 3-seconds to run and gives us a good boilerplate component to work with. <strong>More importantly, it also reduces the tendency to be lazy and overstuff a component, violating best practices around</strong> <strong>composability.</strong></p>
+
+
+
+<p>The <code>component_name.module.css</code> is a CSS module (we use CSS modules primarily) that allows us to easily add styling to each component. Styles live at a component level exclusively, except for a couple of notable exceptions (which are caused by 3rd-party libraries).<sup>1</sup></p>
+
+
+
+<h4 class="wp-block-heading">Creating component families</h4>
+
+
+
+<p>We use the aforementioned structure for individual components, but it doesn&#8217;t address the needs of a component family. Component families contain collections of components and provide a logical, usually business-case-specific separation.</p>
+
+
+
+<p>For example, our Goals feature is one component family. Worksheets, Strategic Initiatives and Tasks are also component families.</p>
+
+
+
+<p>Component families have the following structure:</p>
+
+
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: plain; title: ; notranslate">
+.
+├── Actions
+├── API
+├── Components
+├── Contexts
+├── Data
+├── Errors
+├── Helpers
+├── Hooks
+├── Providers
+├── Reducers
+└── State
+</pre></div>
+
+
+<p>These folders each have their own purpose:</p>
+
+
+
+<ul>
+<li><strong>Actions:</strong> contain objects that have named actions (e.g. <code>FeatureActions.FETCH_DATA</code>)</li>
+
+
+
+<li><strong>API:</strong> contains one-file-per-API call. Files are named according to their HTTP method, such as <code>getStrategies.js</code> and <code>postStrategy.js</code>.</li>
+
+
+
+<li><strong>Components: </strong>our actual components live here. We use the atomic design pattern to organize our components (more on that in a minute).</li>
+
+
+
+<li><strong>Contexts</strong>: boilerplate context files that correspond to a Provider. These are used within our components via the <code>React.useContext</code> hook. </li>
+
+
+
+<li><strong>Data: </strong>not strictly in every component family, but sometimes we have default states or other customizable data that is not dynamic but we don&#8217;t want to live in a singular component. For example, we store manifests that we consume in our factory components here.</li>
+
+
+
+<li><strong>Errors: </strong>error messages are stored at this level.</li>
+
+
+
+<li><strong>Helpers: </strong>any utility functions that are used in this component family but not elsewhere get stored here.</li>
+
+
+
+<li><strong>Hooks: </strong>any React hooks that are used in this component family but not elsewhere are stored here.</li>
+
+
+
+<li><strong>Providers: </strong>this is where 90% of our logic lives. We use providers to encapsulate all API functions, initialization behavior, and more. (read on, I&#8217;ll describe providers in a bit).</li>
+
+
+
+<li><strong>Reducers: </strong>this is where state transformations occur.</li>
+
+
+
+<li><strong>State: </strong>we initialize our the state of our React Context store using files stored here.</li>
+</ul>
+
+
+
+<h4 class="wp-block-heading">Components</h4>
+
+
+
+<p>Components are organized according to the atomic design pattern. This roughly means every component has 4-5 folders:</p>
+
+
+
+<ul>
+<li><strong>Atoms</strong>: small components that do not contain any subcomponents and that do not wrap other components. Buttons are a common example.</li>
+
+
+
+<li><strong>Molecules: </strong>slightly larger components that make up Organisms. These components may have subcomponents and may be higher order components/wrappers to other components.</li>
+
+
+
+<li><strong>Organisms: </strong>large components that represent a single logical concept.</li>
+
+
+
+<li><strong>Templates: </strong>reusable components that are mostly driven by configuration.</li>
+
+
+
+<li><strong>Pages: </strong>components that are made available by a route in React Router. </li>
+</ul>
+
+
+
+<h4 class="wp-block-heading">How we deal with massive features</h4>
+
+
+
+<p>In some cases, we break component families down further by creating another layer of hierarchy. This can be done at two levels: either in the <code>Components</code> folder directly or within the component family.</p>
+
+
+
+<p>The decision to break it down at the <code>Components</code> level or component family level is decided by:</p>
+
+
+
+<ul>
+<li>If there are a lot of separate providers and reducers, then we split it at the component family level.</li>
+
+
+
+<li>If there are a lot of components that share the same couple of providers and reducers, we split it at the <code>Components</code> level.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">State Management</h3>
+
+
+
+<p>We manage state in Minsilo using React Context. Although some people complain about it being inferior to other state libraries, we&#8217;ve found it to be robust, stable and easy to use.</p>
+
+
+
+<p>One of our key principles for state management is to keep all business logic outside of components. And we try at all costs to avoid multi-level prop drilling. It&#8217;s incredibly hard to follow what&#8217;s going on when you prop drill and can lead to a number of nasty side effects (and it&#8217;s just generally hard to maintain).</p>
+
+
+
+<h4 class="wp-block-heading">Providers</h4>
+
+
+
+<p>Most of our business logic exists in a provider. Let&#8217;s look at a really basic example:</p>
+
+
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: jscript; title: ; notranslate">
+import React from 'react'
+import TestReducer from '../Reducers/TestReducer'
+import InitialTestState from '../State/InitialTestState'
+import TestActions from '../Actions/TestActions'
+import TestContext from '../Contexts/TestContext'
+export default function TestProvider({children}) {
+	const &#91;state, dispatch] = React.useReducer(TestReducer, InitialTestState)
+	const crud = {
+		createTest: async () =&gt; {
+			// todo: call API
+			value.addTest(testContents)
+		},
+		destroyTest: async () =&gt; {
+			// todo: call API
+			value.removeTest(testId)
+		},
+	}
+	const value = {
+		...crud,
+		title: state.title,
+        description: state.description,
+		addTest: value =&gt; dispatch({type: TestActions.ADD_TEST, value}),
+		removeTest: value =&gt; dispatch({type: TestActions.REMOVE_TEST, value}),
+        setTitle: value =&gt; dispatch({type: TestActions.SET_TITLE, value}),
+        setDescription: value =&gt; dispatch({type: TestActions.SET_DESCRIPTION, value})
+	}
+	return &lt;TestContext.Provider value={value}&gt;
+		{children}
+	&lt;/TestContext.Provider&gt;
+}
+</pre></div>
+
+
+<p>Much of this is boilerplate, but there are some useful things we&#8217;ve learned over the past few years:</p>
+
+
+
+<ul>
+<li>The <code>value</code> object can become really long and unwieldy. We&#8217;ve found success in creating smaller objects that a focused on a single concern. In the above example, we have a <code>crud</code> object that we spread into value (e.g. <code>...crud</code>).<br><br>This allows us to access the individual functions and data for a specific concern with ease, but without making it difficult to understand and modify the provider.</li>
+
+
+
+<li>Avoid nesting. It&#8217;s much harder to modify nested state. For example, if we had stored <code>title</code> and <code>description</code> in a <code>test</code> object, that would make it harder for us to modify (in other words, use <code>title</code> and <code>description</code> instead of <code>test.title</code> and <code>test.description</code>)</li>
+
+
+
+<li>Named action type constants are better than strings. It&#8217;s technically possible to use a string to discern which action occurred in a <code>dispatch</code> function, but it&#8217;s prone to error since our editor cannot validate the presence/correctness of that action name.</li>
+
+
+
+<li>Separate your API calls from data manipulation. We frequently use websockets, which receive an &#8220;event&#8221; and then do something with the data provided by the websocket message. <br><br>For example, if a user adds a card to a page, then we will transmit that change over a websocket to all other viewers of the page and update what they&#8217;re seeing in real-time.<br><br>Keeping the function that appends an item to the list of cards, for example, separate from the function that works with the API or the websocket allows us to reuse code and reduce the potential confusion.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Conclusion</h3>
+
+
+
+<p>I hope this article inspires you to improve the maintainability of your React projects. </p>
+
+
+
+<p>Writing maintainable and enjoyable to work with code is a continuous process. I&#8217;m sure looking back at this post in a couple of years, I will have made several changes to the way code is organized based on new learnings and changes in project scope.</p>
+
+
+
+<p>Remember it&#8217;s okay to start small and refactor your code over time. If you have any questions, feel free to <a href="mailto:ryan@ryanleaf.org">send me an email</a>.</p>
+
+
+
+<p><strong>Footnotes:</strong></p>
+
+
+
+<ol>
+<li>If you&#8217;re a fan of libraries like SemanticUI or TailwindCSS, you may be wondering if such heavy use of component-level styling leads to a lot of duplicative code. The answer is yes and no. <br><br>Yes, because it&#8217;s easy to be lazy and create CSS for each component individually rather than thinking about reusable styling.<br><br>No, because we can again use composition to create containers and primitive components that give us a consistent interface across implementations. We&#8217;re heavily invested in this approach and I think it&#8217;s more flexible than CSS-based styling because it also allows you to marry sensible functionality within interfaces (i.e. adding close buttons to a dialog).<br><br></li>
+</ol>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>
