@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tools I Use &#8211; Ryan Leaf</title>
+	<title>How I made this site static and secure (with WordPress) &#8211; Ryan Leaf</title>
 <meta name="robots" content="max-image-preview:large">
 <link rel="alternate" type="application/rss+xml" title="Ryan Leaf &raquo; Feed" href="/feed/">
 <link rel="alternate" type="application/rss+xml" title="Ryan Leaf &raquo; Comments Feed" href="/comments/feed/">
@@ -19,13 +19,13 @@
 <style id="twenty-twenty-one-style-inline-css">:root{--global--color-background: #fffdf9;--global--color-primary: #000;--global--color-secondary: #000;--button--color-background: #000;--button--color-text-hover: #000;}</style>
 <link rel="stylesheet" id="twenty-twenty-one-print-style-css" href="/wp-content/themes/twentytwentyone/assets/css/print.css?ver=1.8" media="print">
 <link rel="https://api.w.org/" href="/wp-json/">
-<link rel="alternate" type="application/json" href="/wp-json/wp/v2/pages/18">
+<link rel="alternate" type="application/json" href="/wp-json/wp/v2/posts/29">
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
 <meta name="generator" content="WordPress 6.2.2">
-<link rel="canonical" href="/tools-i-use/">
-<link rel="shortlink" href="/?p=18">
-<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2Ftools-i-use%2F">
-<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2Ftools-i-use%2F#038;format=xml">
+<link rel="canonical" href="/2023/06/how-i-made-this-site-static-and-secure-with-wordpress/">
+<link rel="shortlink" href="/?p=29">
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2023%2F06%2Fhow-i-made-this-site-static-and-secure-with-wordpress%2F">
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2023%2F06%2Fhow-i-made-this-site-static-and-secure-with-wordpress%2F#038;format=xml">
 <!--Customizer CSS--> 
 <style type="text/css">.powered-by {
     display: none;
@@ -34,7 +34,7 @@
 <style id="custom-background-css">body.custom-background { background-color: #fffdf9; }</style>
 	</head>
 
-<body class="page-template-default page page-id-18 custom-background wp-embed-responsive is-light-theme has-background-white no-js singular has-main-navigation">
+<body class="post-template-default single single-post postid-29 single-format-standard custom-background wp-embed-responsive is-light-theme has-background-white no-js singular has-main-navigation">
 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 0.49803921568627"></fefuncr><fefuncg type="table" tablevalues="0 0.49803921568627"></fefuncg><fefuncb type="table" tablevalues="0 0.49803921568627"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 1"></fefuncr><fefuncg type="table" tablevalues="0 1"></fefuncg><fefuncb type="table" tablevalues="0 1"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.54901960784314 0.98823529411765"></fefuncr><fefuncg type="table" tablevalues="0 1"></fefuncg><fefuncb type="table" tablevalues="0.71764705882353 0.25490196078431"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 1"></fefuncr><fefuncg type="table" tablevalues="0 0.27843137254902"></fefuncg><fefuncb type="table" tablevalues="0.5921568627451 0.27843137254902"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 0"></fefuncr><fefuncg type="table" tablevalues="0 0.64705882352941"></fefuncg><fefuncb type="table" tablevalues="0 1"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.78039215686275 1"></fefuncr><fefuncg type="table" tablevalues="0 0.94901960784314"></fefuncg><fefuncb type="table" tablevalues="0.35294117647059 0.47058823529412"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.65098039215686 0.40392156862745"></fefuncr><fefuncg type="table" tablevalues="0 1"></fefuncg><fefuncb type="table" tablevalues="0.44705882352941 0.4"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.098039215686275 1"></fefuncr><fefuncg type="table" tablevalues="0 0.66274509803922"></fefuncg><fefuncb type="table" tablevalues="0.84705882352941 0.41960784313725"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content">
 		Skip to content	</a>
@@ -63,8 +63,8 @@
 		</div>
 <!-- .menu-button-container -->
 		<div class="primary-menu-container"><ul id="primary-menu-list" class="menu-wrapper">
-<li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13"><a href="/blog/">Blog</a></li>
-<li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-18 current_page_item menu-item-20"><a href="/tools-i-use/" aria-current="page">Tools I Use</a></li>
+<li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-13"><a href="/blog/">Blog</a></li>
+<li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a href="/tools-i-use/">Tools I Use</a></li>
 </ul></div>	</nav><!-- #site-navigation -->
 	
 </header><!-- #masthead -->
@@ -73,209 +73,223 @@
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main">
 
-<article id="post-18" class="post-18 page type-page status-publish hentry entry">
+<article id="post-29" class="post-29 post type-post status-publish format-standard hentry category-uncategorized entry">
 
-			<header class="entry-header alignwide">
-			<h1 class="entry-title">Tools I Use</h1>					</header><!-- .entry-header -->
-	
+	<header class="entry-header alignwide">
+		<h1 class="entry-title">How I made this site static and secure (with WordPress)</h1>			</header><!-- .entry-header -->
+
 	<div class="entry-content">
 		
-<blockquote class="wp-block-quote">
-<p><strong>2022-11-01 Update:</strong> I recently switched to Windows 11 from Manjaro. Expect an article explaining this change and how I’m continuing to use the best features of Linux on Windows 11 using WSL2.</p>
-</blockquote>
+<p>WordPress provides one of the most powerful platforms for building a website and managing content. Although it is less flexible than alternatives like Webflow or Gatsby, it has one of the largest (if not <em>the largest</em>) ecosystem of plugins and themes.</p>
 
 
 
-<p>Inspired by <a href="https://tdarb.org/uses.html">tdarb</a> and <a href="https://korayer.de/things-i-use.html">korayer</a> (and many old Lifehacker articles from yesteryear), here are the tools I use to build Minsilo and the various other projects I work on.</p>
+<p>I personally like WordPress quite a lot; it&#8217;s perhaps not a good fit for small businesses and non-technical folks, since despite it&#8217;s general &#8220;ease of use,&#8221; it can get technical quite quickly. Quick disclaimer: I work on <a href="https://www.gofisherman.com/">Fisherman</a>, a full-service website provider that builds beautiful websites for the restaurant and beauty website. </p>
 
 
 
-<h3 class="wp-block-heading">Hardware</h3>
+<p>This article is not about that. This article is about getting the benefits of a statically generated website with a rich CMS. All without having to write a single line of code*.</p>
 
 
 
-<figure class="wp-block-image"><img decoding="async" src="https://ryanleaforg.files.wordpress.com/2022/09/screenshot_2022-09-09_13-29-28.png?w=1024" alt="" class="wp-image-76"><figcaption class="wp-element-caption">What’s in my main dev machine</figcaption></figure>
+<h2 class="wp-block-heading">Why you might want to create a static site (and why you may not)</h2>
+
+
+
+<p>WordPress is notorious for being tricky to maintain and keep secure. It has a lot of moving parts and a large attack surface. Fortunately, the WordPress project has done a lot to improve the general security of the core project in the past few years. </p>
+
+
+
+<p>Unfortunately, <a href="https://www.wpbeginner.com/beginners-guide/reasons-why-wordpress-site-gets-hacked/">there still exists several attack vectors, including out-of-date installs of WordPress and vulnerable (or malicious) plugins</a>. Which is to say: if you can avoid having a WP site exposed to the Internet, you&#8217;ll be able to sleep better at night.</p>
+
+
+
+<p>That said, you may not have a choice. If you&#8217;re actually using the site in a dynamic way, you may still have to host a live WordPress site. For example, the built-in comments feature requires you to have the WP backend and database running to function (although you can use Disqus instead). There are ways to lock down a WP instance, but that&#8217;s beyond the scope of this article.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>WordPress: the static and local website builder</strong></h3>
+
+
+
+<p>In it&#8217;s conventional use, WordPress is not intended to be run locally or used to generate a static website. But with only 1 plugin is possible!</p>
+
+
+
+<h3 class="wp-block-heading">Step 1: Run WordPress locally</h3>
+
+
+
+<p>You could run WordPress on a shared hosting provider like Mediatemple, spin up your own VM and set up a LAMP stack, use a one-click deployment on DigitalOcean or download a premade VM from the likes of Bitnami. All of these options are viable ways of getting a WordPress site spun up, but they kind of defeat the purpose of running it locally.</p>
+
+
+
+<p>A better alternative is to run WordPress in a Docker container. I wrote a quick <code>docker-compose.yml</code> file for my site. You may want to change the passwords, although it&#8217;s not strictly necessary if you&#8217;re on a secure LAN (since the site won&#8217;t ever be public):</p>
+
+
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: yaml; title: ; notranslate" title="">
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    volumes:
+      - ./wordpress:/var/www/html
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./mysql:/var/lib/mysql
+</pre></div>
+
+
+<p>Next, start the Docker container locally:</p>
+
+
+
+<p><code>docker compose up</code></p>
+
+
+
+<p></p>
+
+
+
+<h3 class="wp-block-heading">Step 2: Setup your WordPress instance</h3>
+
+
+
+<p>Once you&#8217;ve started Docker, continue to your browser and open this page: <a href="/">http://host.docker.internal:8080/</a>. DO NOT USE LOCALHOST!</p>
+
+
+
+<p>From there, you&#8217;ll be asked to name your site and set a password. Emails will not work in this context, since you need to configure an SMTP server. This is not necessary in a local context anyway, since automated emails are not going to be sent from your live site.</p>
+
+
+
+<h3 class="wp-block-heading">Step 3: Install SimplyStatic (or WP2Static)</h3>
+
+
+
+<p>From the WordPress admin dashboard, navigate to Plugins > Add New and search for &#8220;Simply Static&#8221;. Install the plugin and activate it.</p>
+
+
+
+<p>Then navigate to the &#8220;Simply Static&#8221; tab on the sidebar. You may want to configure the Settings as shown below:</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="752" height="1024" src="/wp-content/uploads/2023/06/image-1-752x1024.png" alt="" class="wp-image-35" srcset="/wp-content/uploads/2023/06/image-1-752x1024.png 752w, /wp-content/uploads/2023/06/image-1-220x300.png 220w, /wp-content/uploads/2023/06/image-1-768x1046.png 768w, /wp-content/uploads/2023/06/image-1-1128x1536.png 1128w, /wp-content/uploads/2023/06/image-1.png 1240w" sizes="(max-width: 752px) 100vw, 752px"></figure>
+
+
+
+<div style="color:#0369a1;background-color:#e0f2fe" class="wp-block-roelmagdaleno-callout-block has-text-color has-background is-layout-flex wp-container-1"><div>
+<p><strong>ⓘ</strong> <strong>HELPFUL TIP  </strong>Due to the way that the static site generator plugins work, you&#8217;ll want to access this server using the following address: <a href="/">http://host.docker.internal:8080/</a><br><br>If you don&#8217;t use this URL, you may find the SimplyStatic plugin will not function correctly.</p>
+</div></div>
+
+
+
+<h3 class="wp-block-heading">Step 4: Generate static files</h3>
+
+
+
+<p>Next, go back to Simply Static > Generate and click the big purple &#8220;Generate Static Files&#8221; button:</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="472" src="/wp-content/uploads/2023/06/image-2-1024x472.png" alt="" class="wp-image-36" srcset="/wp-content/uploads/2023/06/image-2-1024x472.png 1024w, /wp-content/uploads/2023/06/image-2-300x138.png 300w, /wp-content/uploads/2023/06/image-2-768x354.png 768w, /wp-content/uploads/2023/06/image-2.png 1199w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>Finally, click the link that says &#8220;Click here to download&#8221; to download a zip archive your site.</p>
+
+
+
+<h3 class="wp-block-heading">Step 5: Decide where you&#8217;ll host this site</h3>
+
+
+
+<p>The hard work is over! All you need to do is find a place to host the site. As of the time of writing, ryanleaf.org is running on GitHub Pages, which is a great free hosting option.</p>
+
+
+
+<p><a href="https://docs.github.com/en/pages/quickstart">Check out the GitHub Pages quickstart for details on how to set it up.</a></p>
+
+
+
+<p>If you opt for GitHub Pages, all you&#8217;ll need to do is decompress the entire website to the repo, stage your changes and commit them, then push them to GitHub. GitHub will do the rest.</p>
+
+
+
+<p>Rinse and repeat every time you want to publish a new version. Voila!</p>
+
+
+
+<h3 class="wp-block-heading">[Optional] Step 6: Make your site more static-friendly</h3>
+
+
+
+<p>The default installation of WordPress assumes your site will be running on a server with PHP enabled. This doesn&#8217;t work in the static site context, so you&#8217;ll want to remove a few features, namely:</p>
 
 
 
 <ul>
-<li>Dell Precision T7910 (2017)
-<ul>
-<li>CPUs: 2x Intel Xeon E5-2699 v4 (22-core)</li>
+<li>Site search</li>
 
 
 
-<li>RAM: 128GB</li>
-
-
-
-<li>Storage:
-<ul>
-<li>1TB NVMe primary</li>
-
-
-
-<li>2TB NVMe storage</li>
-
-
-
-<li>4x 6TB WD Red (for virtualized TrueNAS)</li>
-
-
-
-<li>1TB SSD (Windows)</li>
-</ul>
-</li>
-
-
-
-<li>GPU: nVidia GeForce GTX Titan X (12GB)</li>
-
-
-
-<li>OS: Windows 11 Pro</li>
-
-
-
-<li>Peripherals:
-<ul>
-<li>Kinesis Advantage2</li>
-
-
-
-<li>Logitech MX Ergo</li>
-
-
-
-<li>Stream Deck MkII</li>
-
-
-
-<li>2x LG 27″ 4K monitor</li>
-
-
-
-<li>Dell 27″ 4K monitor</li>
-</ul>
-</li>
-</ul>
-</li>
-
-
-
-<li>MacBook Pro 16″ (2019)
-<ul>
-<li>CPU: Intel Core i9-9880H</li>
-
-
-
-<li>RAM: 32GB</li>
-
-
-
-<li>Storage: 1TB</li>
-
-
-
-<li>OS: macOS Ventura</li>
-</ul>
-</li>
-
-
-
-<li>iPhone 14 Pro (256GB, Purple)</li>
+<li>Commenting</li>
 </ul>
 
 
 
-<h3 class="wp-block-heading">Software</h3>
+<p>I&#8217;ve opted for the following plugins to make removal of these features easy:</p>
 
 
 
 <ul>
-<li>Minsilo</li>
+<li>WpSimpleTools Disable Comments</li>
 
 
 
-<li>Windows 11 Pro
-<ul>
-<li>WSL2</li>
-
-
-
-<li>X410</li>
+<li>Disable Search</li>
 </ul>
-</li>
 
 
 
-<li>Webstorm</li>
-
-
-
-<li>Rubymine</li>
-
-
-
-<li>Datagrip</li>
-
-
-
-<li>Pycharm</li>
-
-
-
-<li>neovim</li>
-
-
-
-<li>Docker</li>
-
-
-
-<li>Shortcut (project management)</li>
-
-
-
-<li>i3wm (window manager)</li>
-
-
-
-<li>Firefox (main browser)</li>
-
-
-
-<li>Brave (main Chromium browser)</li>
-
-
-
-<li>cmus</li>
-
-
-
-<li>ncspot (Spotify TUI)</li>
-
-
-
-<li>Figma</li>
-
-
-
-<li>Gitlab</li>
-
-
-
-<li>Linux (Manjaro/Ubuntu primarily), macOS, and Windows</li>
-
-
-
-<li>A collection of (many) SaaS tools</li>
-</ul>
+<p>(*) Not having to write code is a huge perk for content-focused websites like a marketing website or a blog. I don&#8217;t have a lot of time to fuss around with things like Gatsby, so I&#8217;d rather spend my time focused on producing content.<br><br>I also don&#8217;t really care about customizing the website endlessly in terms of its appearance. Yes, I know I have more flexibility if I create my own template for a website (which I can still do with WordPress), but I don&#8217;t have time for that either.</p>
 	</div>
 <!-- .entry-content -->
 
-	</article><!-- #post-18 -->
-			</main><!-- #main -->
+	<footer class="entry-footer default-max-width">
+		<div class="posted-by">
+<span class="posted-on">Published <time class="entry-date published updated" datetime="2023-06-21T21:43:02-04:00">2023-06-21</time></span><span class="byline">By <a href="/author/rjl/" rel="author">Ryan</a></span>
+</div>
+<div class="post-taxonomies"><span class="cat-links">Categorized as <a href="/category/uncategorized/" rel="category tag">Uncategorized</a> </span></div>	</footer><!-- .entry-footer -->
+
+				
+</article><!-- #post-29 -->
+
+	<nav class="navigation post-navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="/2023/01/21-2/" rel="prev"><p class="meta-nav"><svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 13v-2H8l4-4-1-2-7 7 7 7 1-2-4-4z" fill="currentColor"></path></svg>Previous post</p>
+<p class="post-title">Guide: How to get 1Password working with WSL2, Ubuntu 22.04 and SSH</p></a></div></div>
+	</nav>			</main><!-- #main -->
 		</div>
 <!-- #primary -->
 	</div>
@@ -385,6 +399,7 @@
 			} );
 		} );
 	}</script>
+<style id="core-block-supports-inline-css">.wp-container-1.wp-container-1{flex-direction:column;align-items:flex-start;}</style>
 <script id="twenty-twenty-one-ie11-polyfills-js-after">
 ( Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach ) || document.write( '<script src="http://host.docker.internal:8080/wp-content/themes/twentytwentyone/assets/js/polyfills.js?ver=1.8"><\/scr' + 'ipt>' );
 </script>

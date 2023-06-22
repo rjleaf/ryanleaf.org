@@ -9,10 +9,10 @@
 
 <channel>
 	<title>Ryan Leaf</title>
-	<atom:link href="http://host.docker.internal/feed/?simply_static_page=191" rel="self" type="application/rss+xml" />
+	<atom:link href="http://host.docker.internal/feed/?simply_static_page=266" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>Product Manager &#38; Software Engineer</description>
-	<lastBuildDate>Wed, 21 Jun 2023 20:27:52 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 22 Jun 2023 02:03:02 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,215 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.2.2</generator>
 	<item>
+		<title>How I made this site static and secure (with WordPress)</title>
+		<link>/2023/06/how-i-made-this-site-static-and-secure-with-wordpress/</link>
+		
+		<dc:creator><![CDATA[Ryan]]></dc:creator>
+		<pubDate>Thu, 22 Jun 2023 01:43:02 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">/?p=29</guid>
+
+					<description><![CDATA[WordPress provides one of the most powerful platforms for building a website and managing content. Although it is less flexible than alternatives like Webflow or Gatsby, it has one of the largest (if not the largest) ecosystem of plugins and themes. I personally like WordPress quite a lot; it&#8217;s perhaps not a good fit for&#8230; <a class="more-link" href="/2023/06/how-i-made-this-site-static-and-secure-with-wordpress/">Continue reading <span class="screen-reader-text">How I made this site static and secure (with WordPress)</span></a>]]></description>
+										<content:encoded><![CDATA[
+<p>WordPress provides one of the most powerful platforms for building a website and managing content. Although it is less flexible than alternatives like Webflow or Gatsby, it has one of the largest (if not <em>the largest</em>) ecosystem of plugins and themes.</p>
+
+
+
+<p>I personally like WordPress quite a lot; it&#8217;s perhaps not a good fit for small businesses and non-technical folks, since despite it&#8217;s general &#8220;ease of use,&#8221; it can get technical quite quickly. Quick disclaimer: I work on <a href="https://www.gofisherman.com/">Fisherman</a>, a full-service website provider that builds beautiful websites for the restaurant and beauty website. </p>
+
+
+
+<p>This article is not about that. This article is about getting the benefits of a statically generated website with a rich CMS. All without having to write a single line of code*.</p>
+
+
+
+<h2 class="wp-block-heading">Why you might want to create a static site (and why you may not)</h2>
+
+
+
+<p>WordPress is notorious for being tricky to maintain and keep secure. It has a lot of moving parts and a large attack surface. Fortunately, the WordPress project has done a lot to improve the general security of the core project in the past few years. </p>
+
+
+
+<p>Unfortunately, <a href="https://www.wpbeginner.com/beginners-guide/reasons-why-wordpress-site-gets-hacked/">there still exists several attack vectors, including out-of-date installs of WordPress and vulnerable (or malicious) plugins</a>. Which is to say: if you can avoid having a WP site exposed to the Internet, you&#8217;ll be able to sleep better at night.</p>
+
+
+
+<p>That said, you may not have a choice. If you&#8217;re actually using the site in a dynamic way, you may still have to host a live WordPress site. For example, the built-in comments feature requires you to have the WP backend and database running to function (although you can use Disqus instead). There are ways to lock down a WP instance, but that&#8217;s beyond the scope of this article.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>WordPress: the static and local website builder</strong></h3>
+
+
+
+<p>In it&#8217;s conventional use, WordPress is not intended to be run locally or used to generate a static website. But with only 1 plugin is possible!</p>
+
+
+
+<h3 class="wp-block-heading">Step 1: Run WordPress locally</h3>
+
+
+
+<p>You could run WordPress on a shared hosting provider like Mediatemple, spin up your own VM and set up a LAMP stack, use a one-click deployment on DigitalOcean or download a premade VM from the likes of Bitnami. All of these options are viable ways of getting a WordPress site spun up, but they kind of defeat the purpose of running it locally.</p>
+
+
+
+<p>A better alternative is to run WordPress in a Docker container. I wrote a quick <code>docker-compose.yml</code> file for my site. You may want to change the passwords, although it&#8217;s not strictly necessary if you&#8217;re on a secure LAN (since the site won&#8217;t ever be public):</p>
+
+
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: yaml; title: ; notranslate">
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    volumes:
+      - ./wordpress:/var/www/html
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./mysql:/var/lib/mysql
+</pre></div>
+
+
+<p>Next, start the Docker container locally:</p>
+
+
+
+<p><code>docker compose up</code></p>
+
+
+
+<p></p>
+
+
+
+<h3 class="wp-block-heading">Step 2: Setup your WordPress instance</h3>
+
+
+
+<p>Once you&#8217;ve started Docker, continue to your browser and open this page: <a href="/">/</a>. DO NOT USE LOCALHOST!</p>
+
+
+
+<p>From there, you&#8217;ll be asked to name your site and set a password. Emails will not work in this context, since you need to configure an SMTP server. This is not necessary in a local context anyway, since automated emails are not going to be sent from your live site.</p>
+
+
+
+<h3 class="wp-block-heading">Step 3: Install SimplyStatic (or WP2Static)</h3>
+
+
+
+<p>From the WordPress admin dashboard, navigate to Plugins > Add New and search for &#8220;Simply Static&#8221;. Install the plugin and activate it.</p>
+
+
+
+<p>Then navigate to the &#8220;Simply Static&#8221; tab on the sidebar. You may want to configure the Settings as shown below:</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="752" height="1024" src="/wp-content/uploads/2023/06/image-1-752x1024.png" alt="" class="wp-image-35" srcset="/wp-content/uploads/2023/06/image-1-752x1024.png 752w, /wp-content/uploads/2023/06/image-1-220x300.png 220w, /wp-content/uploads/2023/06/image-1-768x1046.png 768w, /wp-content/uploads/2023/06/image-1-1128x1536.png 1128w, /wp-content/uploads/2023/06/image-1.png 1240w" sizes="(max-width: 752px) 100vw, 752px" /></figure>
+
+
+
+<div style="color:#0369a1;background-color:#e0f2fe" class="wp-block-roelmagdaleno-callout-block has-text-color has-background is-layout-flex wp-container-1"><div>
+<p><strong>ⓘ</strong> <strong>HELPFUL TIP  </strong>Due to the way that the static site generator plugins work, you&#8217;ll want to access this server using the following address: <a href="/">/</a><br><br>If you don&#8217;t use this URL, you may find the SimplyStatic plugin will not function correctly.</p>
+</div></div>
+
+
+
+<h3 class="wp-block-heading">Step 4: Generate static files</h3>
+
+
+
+<p>Next, go back to Simply Static > Generate and click the big purple &#8220;Generate Static Files&#8221; button:</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="472" src="/wp-content/uploads/2023/06/image-2-1024x472.png" alt="" class="wp-image-36" srcset="/wp-content/uploads/2023/06/image-2-1024x472.png 1024w, /wp-content/uploads/2023/06/image-2-300x138.png 300w, /wp-content/uploads/2023/06/image-2-768x354.png 768w, /wp-content/uploads/2023/06/image-2.png 1199w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Finally, click the link that says &#8220;Click here to download&#8221; to download a zip archive your site.</p>
+
+
+
+<h3 class="wp-block-heading">Step 5: Decide where you&#8217;ll host this site</h3>
+
+
+
+<p>The hard work is over! All you need to do is find a place to host the site. As of the time of writing, ryanleaf.org is running on GitHub Pages, which is a great free hosting option.</p>
+
+
+
+<p><a href="https://docs.github.com/en/pages/quickstart">Check out the GitHub Pages quickstart for details on how to set it up.</a></p>
+
+
+
+<p>If you opt for GitHub Pages, all you&#8217;ll need to do is decompress the entire website to the repo, stage your changes and commit them, then push them to GitHub. GitHub will do the rest.</p>
+
+
+
+<p>Rinse and repeat every time you want to publish a new version. Voila!</p>
+
+
+
+<h3 class="wp-block-heading">[Optional] Step 6: Make your site more static-friendly</h3>
+
+
+
+<p>The default installation of WordPress assumes your site will be running on a server with PHP enabled. This doesn&#8217;t work in the static site context, so you&#8217;ll want to remove a few features, namely:</p>
+
+
+
+<ul>
+<li>Site search</li>
+
+
+
+<li>Commenting</li>
+</ul>
+
+
+
+<p>I&#8217;ve opted for the following plugins to make removal of these features easy:</p>
+
+
+
+<ul>
+<li>WpSimpleTools Disable Comments</li>
+
+
+
+<li>Disable Search</li>
+</ul>
+
+
+
+<p>(*) Not having to write code is a huge perk for content-focused websites like a marketing website or a blog. I don&#8217;t have a lot of time to fuss around with things like Gatsby, so I&#8217;d rather spend my time focused on producing content.<br><br>I also don&#8217;t really care about customizing the website endlessly in terms of its appearance. Yes, I know I have more flexibility if I create my own template for a website (which I can still do with WordPress), but I don&#8217;t have time for that either.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Guide: How to get 1Password working with WSL2, Ubuntu 22.04 and SSH</title>
 		<link>/2023/01/21-2/</link>
 		
